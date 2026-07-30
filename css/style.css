@@ -1,0 +1,941 @@
+/* ==========================================================
+   KARICOCO — Design Tokens
+   ========================================================== */
+:root {
+  --brown-950: #4d2b15;   /* primary text / headings / footer bg */
+  --brown-800: #6b4222;   /* secondary brown, borders */
+  --gold: #fcca71;        /* primary accent — buttons, ticker */
+  --gold-dark: #dcb062;   /* button border / hover depth */
+  --cream: #fff5e1;       /* warm section background */
+  --white: #ffffff;
+  --shadow-soft: 0 12px 30px rgba(77, 43, 21, 0.12);
+  --shadow-card: 0 8px 24px rgba(77, 43, 21, 0.08);
+
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --container-w: 1200px;
+  --section-pad: clamp(36px, 5.5vw, 72px);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================
+   Reset & base
+   ========================================================== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--brown-950);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--brown-950);
+  margin: 0;
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+p { margin: 0; }
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 40px; }
+}
+
+/* Respect reduced motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================
+   Buttons
+   ========================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 18px 34px;
+  border-radius: 10px;
+  border: 1.5px solid var(--brown-950);
+  cursor: pointer;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--brown-950);
+  box-shadow: 3px 3px 0 var(--brown-950);
+}
+
+.btn-primary:hover {
+  background: var(--gold-dark);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--brown-950);
+}
+
+.btn-primary:active {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0 var(--brown-950);
+}
+
+/* ==========================================================
+   Section headings
+   ========================================================== */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.section-heading h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  white-space: nowrap;
+}
+
+.heading-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--brown-950);
+  position: relative;
+  opacity: 0.5;
+  transform-origin: left center;
+}
+
+.heading-rule::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brown-950);
+  transform: translateY(-50%);
+}
+
+.section-heading--reverse {
+  flex-direction: row-reverse;
+}
+
+.section-heading--reverse .heading-rule::after {
+  right: auto;
+  left: 0;
+}
+
+.section-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(20px, 4vw, 40px);
+}
+
+/* ==========================================================
+   Scroll reveal (JS toggles .in-view)
+   ========================================================== */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  transition-delay: calc(var(--reveal-delay, 0) * 90ms);
+}
+
+[data-reveal].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: transparent;
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease), padding 0.4s var(--ease);
+}
+
+.site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(77, 43, 21, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  transition: padding 0.4s var(--ease);
+}
+
+.site-header.is-scrolled .header-inner {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo img {
+  height: 28px;
+  width: auto;
+}
+
+.main-nav {
+  display: none;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--brown-950);
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--brown-950);
+  transition: width 0.3s var(--ease);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link--accent {
+  background: var(--gold);
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1.5px solid var(--brown-950);
+}
+
+.nav-link--accent::after { display: none; }
+.nav-link--accent:hover { background: var(--gold-dark); }
+
+/* ==========================================================
+   LANGUAGE SWITCHER — styled like the old accent button
+   ========================================================== */
+.lang-switch {
+  position: relative;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--brown-950);
+  background: var(--gold);
+  border: 1.5px solid var(--brown-950);
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.lang-toggle:hover { background: var(--gold-dark); }
+
+.lang-toggle .lang-caret {
+  transition: transform 0.3s var(--ease);
+  flex-shrink: 0;
+}
+
+.lang-switch.is-open .lang-toggle .lang-caret { transform: rotate(180deg); }
+
+.lang-menu {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 150px;
+  background: var(--white);
+  border: 1.5px solid var(--brown-950);
+  border-radius: 10px;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0.25s;
+  z-index: 20;
+}
+
+.lang-switch.is-open .lang-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brown-950);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s var(--ease);
+}
+
+.lang-option:hover { background: var(--cream); }
+
+.lang-option.active {
+  font-weight: 600;
+  background: var(--cream);
+}
+
+.lang-option.active::after {
+  content: "✓";
+  color: var(--brown-950);
+}
+
+@media (max-width: 959px) {
+  .lang-menu { right: auto; left: 0; }
+}
+
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--brown-950);
+  border-radius: 2px;
+  transition: transform 0.35s var(--ease), opacity 0.35s var(--ease);
+}
+
+.nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+.nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (min-width: 960px) {
+  .main-nav {
+    display: flex;
+    position: static;
+    background: none;
+    padding: 0;
+    height: auto;
+  }
+  .nav-toggle { display: none; }
+}
+
+@media (max-width: 959px) {
+  .main-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(78vw, 320px);
+    background: var(--cream);
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    padding: 24px;
+    transform: translateX(100%);
+    transition: transform 0.45s var(--ease);
+    box-shadow: -10px 0 30px rgba(77, 43, 21, 0.12);
+    z-index: 100;
+  }
+  .main-nav.is-open { transform: translateX(0); }
+  .nav-link { font-size: 18px; }
+}
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 90px;
+  z-index: 1; /* own stacking context so the overlapping badge below wins over the next section */
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden; /* clip the cover image only, not the badge */
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 78% center;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero-copy {
+  max-width: 640px;
+}
+
+.hero-title {
+  font-size: clamp(32px, 5.6vw, 56px);
+  margin-bottom: 22px;
+}
+
+.hero-sub {
+  font-size: clamp(15px, 1.6vw, 18px);
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.hero-badge {
+  position: absolute;
+  right: 25%;
+  bottom: clamp(-56px, -5vw, -36px);
+  width: clamp(70px, 9vw, 120px);
+  height: auto;
+  z-index: 2;
+  filter: drop-shadow(0 8px 16px rgba(77, 43, 21, 0.25));
+}
+
+@media (max-width: 640px) {
+  .hero { padding-top: 100px; }
+  .hero-img { object-position: 70% center; }
+  .hero-badge { right: 20px; bottom: -30px; width: 120px; }
+}
+
+.spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================
+   TROPICAL ESCAPE
+   ========================================================== */
+.escape-section {
+  padding: var(--section-pad) 0;
+}
+
+.escape-inner {
+  display: grid;
+  gap: 32px;
+}
+
+.escape-media img {
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.escape-copy h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 24px;
+}
+
+.escape-copy p {
+  margin-bottom: 20px;
+  max-width: 480px;
+  opacity: 0.92;
+}
+
+.escape-copy .btn { margin-top: 8px; }
+
+@media (min-width: 900px) {
+  .escape-inner {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 56px;
+  }
+}
+
+/* ==========================================================
+   RANGE / PRODUCT CARDS
+   ========================================================== */
+.range-section { padding: var(--section-pad) 0; }
+
+.range-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 44px 32px;
+}
+
+@media (min-width: 700px) {
+  .range-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.range-card {
+  transition: transform 0.4s var(--ease);
+}
+
+.range-card:hover { transform: translateY(-6px); }
+
+.range-media {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  aspect-ratio: 16/7.2;
+}
+
+.range-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.range-product {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  padding: 6% 4% 0;
+  transition: transform 0.5s var(--ease);
+}
+
+.range-card:hover .range-product {
+  transform: scale(1.04);
+}
+
+.range-card h3 {
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+  color: var(--brown-800);
+}
+
+.range-card p {
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* ==========================================================
+   WHY KARICOCO
+   ========================================================== */
+.why-section { padding: var(--section-pad) 0; }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 700px) {
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 36px 56px; }
+}
+
+.why-item {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.why-icon {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.4s var(--ease);
+}
+
+.why-item:hover .why-icon { transform: scale(1.08) rotate(-4deg); }
+
+.why-item h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--brown-800);
+}
+
+.why-item p {
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* ==========================================================
+   TICKER
+   ========================================================== */
+.ticker {
+  background: var(--gold);
+  overflow: hidden;
+  padding: 22px 0;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: inline-flex;
+  width: max-content;
+  animation: ticker-scroll 26s linear infinite;
+}
+
+.ticker-track span {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 3.4vw, 34px);
+  color: var(--brown-950);
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ==========================================================
+   INGREDIENTS
+   ========================================================== */
+.ingredients-section { padding: var(--section-pad) 0 calc(var(--section-pad) * 0.5); }
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  text-align: center;
+  justify-items: center;
+}
+
+@media (min-width: 700px) {
+  .ingredients-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.ingredient-item img {
+  width: clamp(140px, 16vw, 180px);
+  margin: 0 auto 20px;
+  transition: transform 0.4s var(--ease);
+}
+
+.ingredient-item:hover img { transform: translateY(-6px) scale(1.03); }
+
+.ingredient-item p {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* ==========================================================
+   THE KARICOCO EFFECT
+   ========================================================== */
+.effect-section { padding: var(--section-pad) 0; }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  text-align: center;
+}
+
+@media (min-width: 760px) {
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .review-item {
+    padding: 0 32px;
+    border-right: 1px solid rgba(77, 43, 21, 0.18);
+  }
+  .review-item:last-child { border-right: none; }
+}
+
+.review-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 16px;
+  border: 2px solid var(--gold);
+}
+
+.stars {
+  color: var(--brown-950);
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+.review-item p {
+  font-style: italic;
+  font-size: 15px;
+  max-width: 280px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* ==========================================================
+   BEST SELLERS
+   ========================================================== */
+.bestsellers-section { padding: var(--section-pad) 0; }
+
+.bestsellers-grid {
+  --bs-rows: 2; /* overridden by JS to match the number of .bs-card items */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 760px) {
+  .bestsellers-grid {
+    grid-template-columns: 1.1fr 1fr;
+    grid-auto-flow: row dense;
+    align-items: stretch;
+  }
+
+  /* Feature card sits in column 1 and spans every row the side
+     cards occupy — one portrait product, two rows, one column. */
+  .bs-feature {
+    grid-column: 1;
+    grid-row: 1 / span var(--bs-rows, 2);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bs-feature .bs-media { flex: 1; }
+
+  /* Cards auto-place into column 2, one product per row. Adding
+     another .bs-card in the HTML simply adds another row here. */
+  .bs-card { grid-column: 2; }
+}
+
+.bs-media {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.bs-feature .bs-media { aspect-ratio: 4/5; }
+.bs-card .bs-media { aspect-ratio: 16/9.5; }
+
+.bs-media img:not(.bs-badge) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.bs-card:hover .bs-media img:not(.bs-badge),
+.bs-feature:hover .bs-media img:not(.bs-badge) {
+  transform: scale(1.06);
+}
+
+.bs-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: clamp(70px, 9vw, 96px);
+  filter: drop-shadow(0 6px 14px rgba(77, 43, 21, 0.3));
+}
+
+.bs-feature h3,
+.bs-card h3 {
+  font-size: 20px;
+  margin: 18px 0 6px;
+}
+
+.bs-feature p,
+.bs-card p {
+  opacity: 0.85;
+  font-size: 15px;
+}
+
+/* ==========================================================
+   FINAL CTA
+   ========================================================== */
+.final-cta { padding: var(--section-pad) 0; }
+
+.final-cta-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.final-cta-heading h2 {
+  font-size: clamp(26px, 4vw, 38px);
+  white-space: nowrap;
+}
+
+.final-cta-heading .heading-rule {
+  max-width: 140px;
+  opacity: 0.5;
+}
+.final-cta-heading .heading-rule::after { display: none; }
+
+.final-cta-heading .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brown-950);
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  .final-cta-heading .heading-rule { display: none; }
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.site-footer {
+  background: var(--cream);
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  margin-top: clamp(-260px, -20vw, -60px); /* pulls the footer up to overlap the tail of the full-bleed image above; scales with the image instead of a fixed px value so it still lines up on narrow screens */
+}
+
+.footer-art {
+  width: 100%;
+  overflow: hidden;
+}
+
+.footer-art img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footer-inner {
+  padding-top: 24px;
+  padding-bottom: 36px;
+}
+
+.footer-logo {
+  height: clamp(52px, 9vw, 100px);
+  width: auto;
+  margin-bottom: 22px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-bottom: 32px;
+}
+
+.footer-nav a {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: opacity 0.3s var(--ease);
+}
+.footer-nav a:hover { opacity: 1; text-decoration: underline; }
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+  padding-top: 22px;
+  border-top: 1px solid rgba(77, 43, 21, 0.3);
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social img {
+  width: clamp(26px, 5vw, 50px);
+  height: clamp(26px, 5vw, 50px);
+  opacity: 0.85;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.footer-social a:hover img {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.footer-copy {
+  font-family: var(--font-display);
+  font-size: clamp(14px, 2.2vw, 20px);
+  font-weight: 500;
+  opacity: 0.8;
+  text-align: right;
+}
+
+/* On narrower screens, right-hugging the icons/copyright against the
+   logo+nav (which are left-aligned) reads as lopsided — center the
+   whole footer instead so it feels intentional on both platforms. */
+@media (max-width: 640px) {
+  .footer-inner { text-align: center; }
+  .footer-logo { margin-left: auto; margin-right: auto; }
+  .footer-nav { justify-content: center; margin-bottom: 28px; }
+  .footer-bottom { align-items: center; }
+  .footer-social { justify-content: center; }
+}
