@@ -3,33 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="pageTitle">Karicoco | Escape to the Exotic</title>
-<meta id="metaDescription" name="description" content="Where tropical botanicals meet modern skincare science. Crafted for radiant, hydrated, summer-ready skin every day.">
+<title>Karicoco | Tropical Skincare, Sun Care &amp; Tanning Oils</title>
+<meta name="description" content="Escape to the exotic. Coconut, shea and monoï skincare made in Côte d'Ivoire. SPF 50+ sun spray, tanning oils and rich body balms.">
+
+<link rel="icon" href="assets/fav/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/fav/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/fav/apple-touch-icon.png">
+<link rel="manifest" href="assets/fav/site.webmanifest">
+<meta name="theme-color" content="#fcca71">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=9">
-
-<link rel="apple-touch-icon" sizes="180x180" href="assets/fav/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/fav/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/fav/favicon-16x16.png">
-<link rel="manifest" href="assets/fav/site.webmanifest">
-
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 <body>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
-    <a href="#" class="logo">
+    <a href="index.html" class="logo">
       <img src="assets/header-logo.png" alt="Karicoco">
     </a>
 
     <nav class="main-nav" id="mainNav">
-      <a href="#home" class="nav-link active" data-i18n="nav.home">Home</a>
-      <a href="#about" class="nav-link" data-i18n="nav.about">About Us</a>
-      <a href="#products" class="nav-link" data-i18n="nav.products">Products</a>
-      <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact Us</a>
+      <a href="index.html" class="nav-link active" data-i18n-key="home"><span data-i18n="nav.home">Home</span></a>
+      <div class="nav-item-dropdown" id="rangeDropdown">
+        <a href="range.html" class="nav-link" id="rangeDropdownToggle">
+          <span data-i18n="nav.range">The Range</span>
+          <svg class="nav-caret" width="9" height="6" viewBox="0 0 10 6" aria-hidden="true">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="sun-care.html">Sun Care</a></li>
+          <li><a href="tanning-oils.html">Tanning Oils</a></li>
+          <li><a href="body-balms.html">Body Balms</a></li>
+          <li><a href="beauty-oils.html">Beauty Oils</a></li>
+          <li><a href="mentholated-care.html">Mentholated Care</a></li>
+        </ul>
+      </div>
+      <a href="about.html" class="nav-link" data-i18n-key="about"><span data-i18n="nav.about">About</span></a>
+      <a href="partner.html" class="nav-link" data-i18n-key="partner"><span data-i18n="nav.partner">Partner With Us</span></a>
+      <a href="contact.html" class="nav-link" data-i18n-key="contact"><span data-i18n="nav.contact">Contact</span></a>
 
       <div class="lang-switch" id="langSwitch">
         <button type="button" class="lang-toggle" id="langToggle" aria-haspopup="true" aria-expanded="false">
@@ -40,8 +57,8 @@
         </button>
         <ul class="lang-menu" id="langMenu" role="menu">
           <li role="none"><button type="button" class="lang-option active" data-lang="en" role="menuitem">English</button></li>
-          <li role="none"><button type="button" class="lang-option" data-lang="fr" role="menuitem">Français</button></li>
-          <li role="none"><button type="button" class="lang-option" data-lang="pt" role="menuitem">Português</button></li>
+          <li role="none"><button type="button" class="lang-option" data-lang="fr" role="menuitem">Fran&ccedil;ais</button></li>
+          <li role="none"><button type="button" class="lang-option" data-lang="pt" role="menuitem">Portugu&ecirc;s</button></li>
         </ul>
       </div>
     </nav>
@@ -57,29 +74,65 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="home">
     <div class="hero-bg">
-      <img src="assets/hero-banner.jpg" alt="Karicoco tanning oil on tropical beach" data-i18n-alt="hero.imgAlt" class="hero-img">
+      <img src="assets/hero-banner.jpg" alt="Karicoco tanning oil on tropical beach" class="hero-img">
     </div>
     <div class="container hero-inner">
       <div class="hero-copy" data-reveal>
-        <h1 class="hero-title" data-i18n="hero.title">Escape to the Exotic.<br>Nourish Your Skin with Karicoco.</h1>
-        <p class="hero-sub" data-i18n="hero.subtitle">Where tropical botanicals meet modern skincare science. Crafted for radiant, hydrated, summer-ready skin every day.</p>
-        <a href="#products" class="btn btn-primary" data-i18n="hero.cta">The Exotica Range</a>
+        <h1 class="hero-title">Escape to the Exotic.<br>Nourish Your Skin with Karicoco.</h1>
+        <p class="hero-sub">Where tropical botanicals meet modern skincare science. Made in C&ocirc;te d&rsquo;Ivoire for radiant, hydrated, summer-ready skin every day.</p>
+        <a href="range.html" class="btn btn-primary">Discover the Exotica Range</a>
       </div>
     </div>
     <img src="assets/banner-overlay-badge.png" alt="Love, Karicoco" class="hero-badge spin-slow">
   </section>
 
-  <!-- ============ TROPICAL ESCAPE ============ -->
+  <!-- ============ BRAND INTRODUCTION ============ -->
   <section class="escape-section" id="about">
     <div class="container escape-inner">
       <div class="escape-media" data-reveal>
-        <img src="assets/tropical-escape-image.jpg" alt="Karicoco product lineup on the sand" data-i18n-alt="escape.imgAlt">
+        <img src="assets/tropical-escape-image.jpg" alt="Karicoco product lineup on the sand">
       </div>
       <div class="escape-copy" data-reveal data-reveal-delay="1">
-        <h2 data-i18n="escape.title">A Tropical Escape,<br>Bottled.</h2>
-        <p data-i18n="escape.p1">Karicoco blends the purity of coconut, the softness of natural botanicals, and the indulgence of island living.</p>
-        <p data-i18n="escape.p2">Every product is thoughtfully crafted to hydrate, soothe, and elevate your everyday ritual.</p>
-        <a href="#about" class="btn btn-primary" data-i18n="escape.cta">Read Our Story</a>
+        <h2>A Tropical Escape,<br>Bottled.</h2>
+        <p>Karicoco blends the purity of coconut, the softness of natural botanicals, and the indulgence of island living. Every product is thoughtfully crafted to hydrate, soothe, and elevate your everyday ritual.</p>
+        <a href="about.html" class="text-link">Read Our Story &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE RANGE ============ -->
+  <section class="range-section" id="products">
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <h2>The Karicoco Range</h2>
+        <span class="heading-rule" aria-hidden="true"></span>
+      </div>
+      <div class="category-grid">
+        <div class="category-card" data-reveal>
+        <h3>Sun Care</h3>
+        <p>Protect, soothe, and care for sun-exposed skin.</p>
+        <a href="sun-care.html" class="text-link">Explore Sun Care &rarr;</a>
+      </div>
+        <div class="category-card" data-reveal>
+        <h3>Tanning Oils</h3>
+        <p>Hydrating blends for a smooth, sun-kissed glow.</p>
+        <a href="tanning-oils.html" class="text-link">Explore Tanning Oils &rarr;</a>
+      </div>
+        <div class="category-card" data-reveal>
+        <h3>Body Balms</h3>
+        <p>Rich nourishment for face, body, and hair.</p>
+        <a href="body-balms.html" class="text-link">Explore Body Balms &rarr;</a>
+      </div>
+        <div class="category-card" data-reveal>
+        <h3>Beauty Oils</h3>
+        <p>Lightweight nourishment with everyday sun protection.</p>
+        <a href="beauty-oils.html" class="text-link">Explore Beauty Oils &rarr;</a>
+      </div>
+        <div class="category-card" data-reveal>
+        <h3>Mentholated Care</h3>
+        <p>Where Karicoco started. Cooling soap, balm and shower gel.</p>
+        <a href="mentholated-care.html" class="text-link">Explore Mentholated Care &rarr;</a>
+      </div>
       </div>
     </div>
   </section>
@@ -88,91 +141,45 @@
   <section class="why-section">
     <div class="container">
       <div class="section-heading" data-reveal>
-        <h2 data-i18n="why.heading">Why Karicoco</h2>
+        <h2>Why Karicoco</h2>
         <span class="heading-rule" aria-hidden="true"></span>
       </div>
-
       <div class="why-grid">
-        <div class="why-item" data-reveal>
-          <img src="assets/characteristics-1.png" alt="Coconut" data-i18n-alt="why.item1.imgAlt" class="why-icon">
+        <div class="why-item" data-reveal data-reveal-delay="0">
+          <span class="why-number">01</span>
           <div>
-            <h3 data-i18n="why.item1.title">Tropical Goodness</h3>
-            <p data-i18n="why.item1.desc">Derived from coconut and exotic ingredients.</p>
+            <h3>Three Levels of Protection</h3>
+            <p>SPF 50+ in the sunscreen spray, SPF 15 in the beauty oils, SPF 10 in the tanning oils. Every level is stated on the bottle.</p>
           </div>
         </div>
         <div class="why-item" data-reveal data-reveal-delay="1">
-          <img src="assets/characteristics-2.png" alt="Water droplets" data-i18n-alt="why.item2.imgAlt" class="why-icon">
+          <span class="why-number">02</span>
           <div>
-            <h3 data-i18n="why.item2.title">Lightweight Hydration</h3>
-            <p data-i18n="why.item2.desc">Soft, breathable moisture your skin loves.</p>
+            <h3>Tropical Goodness</h3>
+            <p>Coconut, shea butter, mono&iuml; and carrot.</p>
           </div>
         </div>
-        <div class="why-item" data-reveal>
-          <img src="assets/characteristics-3.png" alt="Green leaves" data-i18n-alt="why.item3.imgAlt" class="why-icon">
+        <div class="why-item" data-reveal data-reveal-delay="0">
+          <span class="why-number">03</span>
           <div>
-            <h3 data-i18n="why.item3.title">Clean Formulas</h3>
-            <p data-i18n="why.item3.desc">Derived from coconut and exotic ingredients.</p>
+            <h3>One Product, Three Uses</h3>
+            <p>Face, body and hair &mdash; stated on every pommade and beauty oil.</p>
           </div>
         </div>
         <div class="why-item" data-reveal data-reveal-delay="1">
-          <img src="assets/characteristics-4.png" alt="Tropical flower" data-i18n-alt="why.item4.imgAlt" class="why-icon">
+          <span class="why-number">04</span>
           <div>
-            <h3 data-i18n="why.item4.title">Tropical Goodness</h3>
-            <p data-i18n="why.item4.desc">Derived from coconut and exotic ingredients.</p>
+            <h3>Indulgent Scents</h3>
+            <p>Mono&iuml;, coconut and icy mint &mdash; a daily ritual that feels like an escape.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ OUR EXOTICA RANGE ============ -->
-  <section class="range-section" id="products">
-    <div class="container">
-      <div class="section-heading" data-reveal>
-        <h2 data-i18n="range.heading">Our Exotica Range</h2>
-        <span class="heading-rule" aria-hidden="true"></span>
-      </div>
-
-      <div class="range-grid">
-        <article class="range-card" data-reveal>
-          <div class="range-media">
-            <img src="assets/product-background.png" alt="" class="range-bg" aria-hidden="true">
-            <img src="assets/product.png" alt="Exotica Body Cleanser lineup" data-i18n-alt="range.card1.imgAlt" class="range-product">
+        <div class="why-item" data-reveal data-reveal-delay="0">
+          <span class="why-number">05</span>
+          <div>
+            <h3>Made in C&ocirc;te d&rsquo;Ivoire</h3>
+            <p>Tropical ingredients, formulated where they grow.</p>
           </div>
-          <h3 data-i18n="range.card1.title">Exotica Body Cleanser</h3>
-          <p data-i18n="range.card1.desc">A refreshing coconut-infused cleanse.</p>
-        </article>
-
-        <article class="range-card" data-reveal data-reveal-delay="1">
-          <div class="range-media">
-            <img src="assets/product-background.png" alt="" class="range-bg" aria-hidden="true">
-            <img src="assets/product.png" alt="Exotica Body Lotion lineup" data-i18n-alt="range.card2.imgAlt" class="range-product">
-          </div>
-          <h3 data-i18n="range.card2.title">Exotica Body Lotion</h3>
-          <p data-i18n="range.card2.desc">Silky hydration with a lightweight tropical finish.</p>
-        </article>
-
-        <article class="range-card" data-reveal>
-          <div class="range-media">
-            <img src="assets/product-background.png" alt="" class="range-bg" aria-hidden="true">
-            <img src="assets/product.png" alt="Exotica Hand & Foot Cream lineup" data-i18n-alt="range.card3.imgAlt" class="range-product">
-          </div>
-          <h3 data-i18n="range.card3.title">Exotica Hand &amp; Foot Cream</h3>
-          <p data-i18n="range.card3.desc">Deep nourishment for soft, smooth skin.</p>
-        </article>
-
-        <article class="range-card" data-reveal data-reveal-delay="1">
-          <div class="range-media">
-            <img src="assets/product-background.png" alt="" class="range-bg" aria-hidden="true">
-            <img src="assets/product.png" alt="Exotica Hair Nourish Oil & Shampoo lineup" data-i18n-alt="range.card4.imgAlt" class="range-product">
-          </div>
-          <h3 data-i18n="range.card4.title">Exotica Hair Nourish Oil &amp; Shampoo</h3>
-          <p data-i18n="range.card4.desc">Strength, shine, and tropical softness.</p>
-        </article>
-      </div>
-
-      <div class="section-cta" data-reveal>
-        <a href="#products" class="btn btn-primary" data-i18n="range.cta">See All Products</a>
+        </div>
       </div>
     </div>
   </section>
@@ -180,119 +187,101 @@
   <!-- ============ TICKER ============ -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span data-i18n="ticker.text">Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-      <span data-i18n="ticker.text">Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-      <span data-i18n="ticker.text">Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-      <span data-i18n="ticker.text">Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-      <span data-i18n="ticker.text">Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-      <span data-i18n="ticker.text">Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-      <span data-i18n="ticker.text">Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-      <span data-i18n="ticker.text">Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+      <span>Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span><span>Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span><span>Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span><span>Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span><span>Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span><span>Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span><span>Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span><span>Nature&rsquo;s Best in Every Drop&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
     </div>
   </div>
 
   <!-- ============ INGREDIENTS ============ -->
   <section class="ingredients-section">
-    <div class="container ingredients-grid">
-      <div class="ingredient-item" data-reveal>
-        <img src="assets/ingredients-coconut-extract.png" alt="Coconut Extract" data-i18n-alt="ingredients.item1.imgAlt">
-        <p data-i18n="ingredients.item1.text">Cools and soothes<br>the skin</p>
+    <div class="container">
+      <div class="section-heading" data-reveal>
+        <h2>Nature&rsquo;s Best in Every Drop</h2>
+        <span class="heading-rule" aria-hidden="true"></span>
       </div>
-      <div class="ingredient-item" data-reveal data-reveal-delay="1">
-        <img src="assets/ingredients-shea-butter.png" alt="Shea Butter" data-i18n-alt="ingredients.item2.imgAlt">
-        <p data-i18n="ingredients.item2.text">Long-lasting<br>moisture</p>
-      </div>
-      <div class="ingredient-item" data-reveal data-reveal-delay="2">
-        <img src="assets/ingredients-tropical-fragnance.png" alt="Tropical Fragrance" data-i18n-alt="ingredients.item3.imgAlt">
-        <p data-i18n="ingredients.item3.text">Uplifting, refreshing,<br>indulgent</p>
+      <div class="ingredients-grid">
+        <div class="ingredient-card" data-reveal data-reveal-delay="0">
+          <span class="ingredient-dot" aria-hidden="true"></span>
+          <div>
+            <h3>Coconut oil</h3>
+            <p>Nourishes and restores softness</p>
+          </div>
+        </div>
+        <div class="ingredient-card" data-reveal data-reveal-delay="1">
+          <span class="ingredient-dot" aria-hidden="true"></span>
+          <div>
+            <h3>Shea butter</h3>
+            <p>Long-lasting moisture</p>
+          </div>
+        </div>
+        <div class="ingredient-card" data-reveal data-reveal-delay="2">
+          <span class="ingredient-dot" aria-hidden="true"></span>
+          <div>
+            <h3>Mono&iuml;</h3>
+            <p>Radiance and signature scent</p>
+          </div>
+        </div>
+        <div class="ingredient-card" data-reveal data-reveal-delay="0">
+          <span class="ingredient-dot" aria-hidden="true"></span>
+          <div>
+            <h3>Carrot oil</h3>
+            <p>Betacarotene, for warmth and depth of tone</p>
+          </div>
+        </div>
+        <div class="ingredient-card" data-reveal data-reveal-delay="1">
+          <span class="ingredient-dot" aria-hidden="true"></span>
+          <div>
+            <h3>Aloe vera</h3>
+            <p>Soothes and hydrates sun-exposed skin</p>
+          </div>
+        </div>
+        <div class="ingredient-card" data-reveal data-reveal-delay="2">
+          <span class="ingredient-dot" aria-hidden="true"></span>
+          <div>
+            <h3>Vitamin E</h3>
+            <p>Antioxidant, in every tanning oil</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ KARICOCO EFFECT ============ -->
+  <!-- ============ CUSTOMER REVIEWS ============ -->
   <section class="effect-section">
     <div class="container">
       <div class="section-heading" data-reveal>
-        <h2 data-i18n="effect.heading">The Karicoco Effect</h2>
+        <h2>Customer Reviews</h2>
         <span class="heading-rule" aria-hidden="true"></span>
       </div>
-
       <div class="reviews-grid">
-        <div class="review-item" data-reveal>
-          <img src="assets/reviewer-1.png" alt="Karicoco customer" data-i18n-alt="effect.review1.imgAlt" class="review-avatar">
-          <div class="stars" aria-label="5 out of 5 stars" data-i18n-aria="effect.review1.starsAria">★★★★★</div>
-          <p data-i18n="effect.review1.text">&ldquo;Smells heavenly. Leaves my skin hydrated and glowing.&rdquo;</p>
+        <div class="review-item" data-reveal data-reveal-delay="0">
+          <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>&ldquo;So comforting after a day in the sun. My skin feels beautifully soft!&rdquo;</p>
         </div>
         <div class="review-item" data-reveal data-reveal-delay="1">
-          <img src="assets/reviewer-2.png" alt="Karicoco customer" data-i18n-alt="effect.review2.imgAlt" class="review-avatar">
-          <div class="stars" aria-label="5 out of 5 stars" data-i18n-aria="effect.review2.starsAria">★★★★★</div>
-          <p data-i18n="effect.review2.text">&ldquo;The texture is luxurious. Feels like a mini vacation.&rdquo;</p>
+          <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>&ldquo;Love the texture. It leaves my skin smooth and moisturized.&rdquo;</p>
         </div>
         <div class="review-item" data-reveal data-reveal-delay="2">
-          <img src="assets/reviewer-3.png" alt="Karicoco customer" data-i18n-alt="effect.review3.imgAlt" class="review-avatar">
-          <div class="stars" aria-label="5 out of 5 stars" data-i18n-aria="effect.review3.starsAria">★★★★★</div>
-          <p data-i18n="effect.review3.text">&ldquo;My favourite daily ritual now!&rdquo;</p>
+          <div class="stars" aria-label="4 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+          <p>&ldquo;The perfect product to use after a long beach day.&rdquo;</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ BEST SELLERS ============ -->
-  <section class="bestsellers-section">
-    <div class="container">
-      <div class="section-heading" data-reveal>
-        <h2 data-i18n="bestsellers.heading">Best Sellers</h2>
-        <span class="heading-rule" aria-hidden="true"></span>
-      </div>
-
-      <!-- Grid is scalable: the feature card auto-spans the number of
-           .bs-card items on the right (see script.js). Add another
-           .bs-card and it drops into a new row automatically. -->
-      <div class="bestsellers-grid">
-        <article class="bs-feature" data-reveal>
-          <div class="bs-media">
-            <img src="assets/best-seller-1.png" alt="Applying Karicoco sunscreen spray" data-i18n-alt="bestsellers.feature.imgAlt">
-            <img src="assets/banner-overlay-badge.png" alt="Love, Karicoco" class="bs-badge spin-slow">
-          </div>
-          <h3 data-i18n="bestsellers.feature.title">Sunscreen Spray</h3>
-          <p data-i18n="bestsellers.feature.desc">High protection, light weight sunscreen</p>
-        </article>
-
-        <article class="bs-card" data-reveal>
-          <div class="bs-media">
-            <img src="assets/best-seller-2.png" alt="Karicoco tanning oil" data-i18n-alt="bestsellers.card1.imgAlt">
-          </div>
-          <h3 data-i18n="bestsellers.card1.title">Tanning Oil</h3>
-          <p data-i18n="bestsellers.card1.desc">With carrot, coconut &amp; shea oils</p>
-        </article>
-
-        <article class="bs-card" data-reveal data-reveal-delay="1">
-          <div class="bs-media">
-            <img src="assets/best-seller-3.png" alt="Karicoco pomade" data-i18n-alt="bestsellers.card2.imgAlt">
-          </div>
-          <h3 data-i18n="bestsellers.card2.title">Pomade</h3>
-          <p data-i18n="bestsellers.card2.desc">With monoi, coconut oil &amp; shea butter</p>
-        </article>
-      </div>
-
-      <div class="section-cta" data-reveal>
-        <a href="#products" class="btn btn-primary" data-i18n="bestsellers.cta">Product Range</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FINAL CTA ============ -->
-  <section class="final-cta" id="franchise">
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="final-cta">
     <div class="container">
       <div class="final-cta-heading" data-reveal>
         <span class="dot" aria-hidden="true"></span>
         <span class="heading-rule" aria-hidden="true"></span>
-        <h2 data-i18n="finalcta.heading">Ready for Your Tropical Glow?</h2>
+        <h2>Ready for Your Tropical Glow?</h2>
         <span class="heading-rule" aria-hidden="true"></span>
         <span class="dot" aria-hidden="true"></span>
       </div>
+      <p style="text-align:center; max-width:520px; margin:0 auto 28px; opacity:0.85;" data-reveal>Indulge your skin in everyday beach luxury. Find Karicoco in supermarkets across C&ocirc;te d&rsquo;Ivoire and selected international markets.</p>
       <div class="section-cta" data-reveal>
-        <a href="#franchise" class="btn btn-primary" data-i18n="finalcta.cta">Franchise Enquiry</a>
+        <a href="range.html" class="btn btn-primary">See the Full Range</a>
       </div>
     </div>
   </section>
@@ -303,30 +292,44 @@
 </div>
 
 <!-- ============ FOOTER ============ -->
-<footer class="site-footer" id="contact">
+<footer class="site-footer" id="siteFooter">
   <div class="container footer-inner">
     <img src="assets/footer-logo.png" alt="Karicoco" class="footer-logo">
+    <p class="footer-brandline" data-i18n="footer.brandline">Complete Natural Skincare</p>
 
     <nav class="footer-nav">
-      <a href="#home" data-i18n="nav.home">Home</a>
-      <a href="#products" data-i18n="nav.products">Products</a>
-      <a href="#about" data-i18n="nav.about">About Us</a>
-      <a href="#contact" data-i18n="nav.contact">Contact Us</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="range.html" data-i18n="nav.range">The Range</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="partner.html" data-i18n="nav.partner">Partner With Us</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
     </nav>
 
+    <div class="footer-meta">
+      <p><span data-i18n="footer.attribution">A Copaci brand. Made in C&ocirc;te d&rsquo;Ivoire since 1990.</span> &rarr; <a href="https://copaci.com" target="_blank" rel="noopener">copaci.com</a></p>
+      <p><a href="mailto:info@copaci.com">info@copaci.com</a> &middot; <a href="tel:+22527234665">+225 27 23 46 65 53</a> &middot; Abidjan, C&ocirc;te d&rsquo;Ivoire</p>
+    </div>
+
     <div class="footer-bottom">
-      <div class="footer-social">
-        <a href="#" aria-label="Facebook"><img src="assets/footer-button-facebook.png" alt=""></a>
-        <a href="#" aria-label="LinkedIn"><img src="assets/footer-button-linkedin.png" alt=""></a>
-        <a href="#" aria-label="YouTube"><img src="assets/footer-button-youtube.png" alt=""></a>
-        <a href="#" aria-label="Instagram"><img src="assets/footer-button-instagram.png" alt=""></a>
+      <div class="footer-legal">
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="terms.html" data-i18n="footer.terms">Terms of Use</a>
+        <a href="cookies.html" data-i18n="footer.cookies">Cookie Policy</a>
       </div>
-      <p class="footer-copy">&copy; <span id="copyYear">2026</span>, Copaci, <span data-i18n="footer.country">C&ocirc;te d&rsquo;Ivoire</span>.</p>
+      <div class="footer-bottom-right">
+        <div class="footer-social">
+          <a href="https://facebook.com/copaci.official" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/footer-button-facebook.png" alt=""></a>
+          <a href="https://linkedin.com/company/copaci" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/footer-button-linkedin.png" alt=""></a>
+          <a href="#" aria-label="YouTube"><img src="assets/footer-button-youtube.png" alt=""></a>
+          <a href="https://instagram.com/copaci.official" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/footer-button-instagram.png" alt=""></a>
+        </div>
+        <p class="footer-copy">&copy; <span id="copyYear">2026</span>, Copaci, C&ocirc;te d&rsquo;Ivoire.</p>
+      </div>
     </div>
   </div>
 </footer>
 
-<script src="js/script.js?v=7"></script>
-<script src="js/i18n.js?v=2"></script>
+<script src="js/script.js?v=8"></script>
+<script src="js/i18n.js?v=3"></script>
 </body>
 </html>

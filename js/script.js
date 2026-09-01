@@ -33,51 +33,31 @@
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  mainNav.querySelectorAll(".nav-link").forEach((link) => {
+  // Plain nav links close the mobile panel. The "The Range" dropdown toggle
+  // is handled separately below since on mobile it expands a submenu
+  // in-place instead of navigating straight away.
+  mainNav.querySelectorAll(".nav-link:not(#rangeDropdownToggle)").forEach((link) => {
+    link.addEventListener("click", closeNav);
+  });
+  mainNav.querySelectorAll(".nav-dropdown-menu a").forEach((link) => {
     link.addEventListener("click", closeNav);
   });
 
-  /* ---------- Active nav link on scroll ---------- */
-  const sections = ["home", "products", "about", "contact", "franchise"]
-    .map((id) => document.getElementById(id))
-    .filter(Boolean);
-  const navLinks = Array.from(mainNav.querySelectorAll(".nav-link"));
+  /* ---------- "The Range" dropdown ----------
+     Desktop: CSS handles open-on-hover. We still support click/keyboard.
+     Mobile (<960px): tapping the label expands the submenu in place
+     rather than navigating immediately, since there's no hover there. */
+  const rangeDropdown = document.getElementById("rangeDropdown");
+  const rangeDropdownToggle = document.getElementById("rangeDropdownToggle");
+  const isMobileNav = () => window.matchMedia("(max-width: 959px)").matches;
 
-  const setActive = () => {
-    const scrollPos = window.scrollY + window.innerHeight * 0.35;
-    let current = sections[0];
-    let bestTop = -Infinity;
-    sections.forEach((sec) => {
-      const top = sec.offsetTop;
-      if (top <= scrollPos && top > bestTop) {
-        bestTop = top;
-        current = sec;
+  if (rangeDropdown && rangeDropdownToggle) {
+    rangeDropdownToggle.addEventListener("click", (e) => {
+      if (isMobileNav()) {
+        e.preventDefault();
+        rangeDropdown.classList.toggle("is-open");
       }
     });
-
-    // Guard for short trailing sections (e.g. the footer/"Contact Us"):
-    // if it's shorter than the lookahead above, scrollPos can never reach
-    // its offsetTop even at the very bottom of the page. When the user has
-    // scrolled all the way down, force whichever section is physically last.
-    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-    if (atBottom) {
-      current = sections.reduce((last, sec) => (sec.offsetTop > last.offsetTop ? sec : last), sections[0]);
-    }
-
-    navLinks.forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === `#${current.id}`);
-    });
-  };
-  setActive();
-  window.addEventListener("scroll", setActive, { passive: true });
-
-  /* ---------- Best Sellers grid: feature card spans however many
-     .bs-card items sit beside it, so adding a 4th/5th product later
-     needs no CSS changes — just drop in another .bs-card. ---------- */
-  const bsGrid = document.querySelector(".bestsellers-grid");
-  if (bsGrid) {
-    const sideCount = bsGrid.querySelectorAll(".bs-card").length;
-    bsGrid.style.setProperty("--bs-rows", String(Math.max(sideCount, 1)));
   }
 
   /* ---------- Scroll reveal ---------- */
@@ -110,4 +90,41 @@
   } else {
     revealEls.forEach((el) => el.classList.add("in-view"));
   }
+
+  /* ---------- Partner form: reveal "Distribute" fields conditionally ---------- */
+  const intentGroup = document.getElementById("pf-intent-group");
+  const distributeFields = document.getElementById("pf-distribute-fields");
+
+  if (intentGroup && distributeFields) {
+    const syncDistributeFields = () => {
+      const checked = intentGroup.querySelector('input[name="intent"]:checked');
+      distributeFields.classList.toggle("is-visible", !!checked && checked.value === "distribute");
+    };
+    intentGroup.querySelectorAll('input[name="intent"]').forEach((radio) => {
+      radio.addEventListener("change", syncDistributeFields);
+    });
+    syncDistributeFields();
+  }
+
+  /* ---------- Contact / Partner forms ----------
+     No backend is wired up yet (see the note printed on each form).
+     This just gives a real success state client-side so the form feels
+     complete; swap the handler for a real submit once a backend exists. */
+  const wireForm = (formId, successId) => {
+    const form = document.getElementById(formId);
+    const success = document.getElementById(successId);
+    if (!form || !success) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      success.classList.add("is-visible");
+      form.reset();
+      success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  };
+  wireForm("contactForm", "contactFormSuccess");
+  wireForm("partnerForm", "partnerFormSuccess");
 })();
