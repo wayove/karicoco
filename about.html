@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12">
+<link rel="stylesheet" href="css/style.css?v=15">
 </head>
 <body>
 
@@ -72,7 +72,10 @@
 <main>
 
   <section class="page-hero">
-    <div class="container">
+    <div class="page-hero-bg" aria-hidden="true">
+      <img src="assets/hero/hero-common.jpg" srcset="assets/hero/hero-common-1100.jpg 1100w, assets/hero/hero-common.jpg 2172w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
+    </div>
+    <div class="container page-hero-inner">
       <div class="breadcrumb" data-reveal><a href="index.html">Home</a><span>/</span><span>About</span></div>
       <h1 data-reveal>A Touch of the Tropics, Every Day</h1>
       <p data-reveal data-reveal-delay="1">Karicoco was born from a simple idea: that daily care should feel like a moment of escape.</p>
@@ -83,7 +86,7 @@
     <div class="container">
       <div class="split-section">
         <div class="split-media" data-reveal>
-          <img src="assets/tropical-escape-image.jpg" alt="Karicoco products on the sand">
+          <img src="assets/about/about-our-story.webp" alt="Karicoco products on the beach" width="1400" height="1050">
         </div>
         <div class="prose" data-reveal data-reveal-delay="1">
           <h2>Our Story</h2>
@@ -98,7 +101,7 @@
     <div class="container">
       <div class="split-section reverse">
         <div class="split-media" data-reveal>
-          <img src="assets/hero-banner.jpg" alt="Karicoco made in Côte d'Ivoire">
+          <img src="assets/about/about-made-in-cote.webp" alt="Karicoco, made in C&ocirc;te d&rsquo;Ivoire" width="1400" height="1050" loading="lazy">
         </div>
         <div class="prose" data-reveal data-reveal-delay="1">
           <h2>Made in C&ocirc;te d&rsquo;Ivoire</h2>
@@ -128,7 +131,7 @@
 
 </main>
 <div class="footer-art" aria-hidden="true">
-  <img src="assets/footer-image.png" alt="">
+  <img src="assets/footer-image.png?v=2" alt="">
 </div>
 
 <!-- ============ FOOTER ============ -->
@@ -169,7 +172,7 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=8"></script>
+<script src="js/script.js?v=10"></script>
 <script src="js/i18n.js?v=3"></script>
 </body>
 </html>

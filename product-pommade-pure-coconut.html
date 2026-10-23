@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12">
+<link rel="stylesheet" href="css/style.css?v=15">
 </head>
 <body>
 
@@ -79,8 +79,16 @@
       </div>
 
       <div class="product-detail-inner">
-        <div class="product-detail-media" data-reveal>
-          <img src="assets/product.png" alt="Pure Coconut">
+        <div class="product-gallery" data-reveal>
+          <div class="product-detail-media">
+            <img id="galleryMain" src="assets/products/pommade-pure-coconut-1.webp" alt="Pure Coconut" width="1000" height="1000">
+          </div>
+          <div class="product-thumbs">
+            <button type="button" class="product-thumb is-active" data-src="assets/products/pommade-pure-coconut-1.webp" data-alt="Pure Coconut &ndash; view 1" aria-label="Show image 1 of 4"><img src="assets/products/pommade-pure-coconut-1-thumb.webp" alt="" width="300" height="300" loading="lazy"></button>
+            <button type="button" class="product-thumb" data-src="assets/products/pommade-pure-coconut-2.webp" data-alt="Pure Coconut &ndash; view 2" aria-label="Show image 2 of 4"><img src="assets/products/pommade-pure-coconut-2-thumb.webp" alt="" width="300" height="300" loading="lazy"></button>
+            <button type="button" class="product-thumb" data-src="assets/products/pommade-pure-coconut-3.webp" data-alt="Pure Coconut &ndash; view 3" aria-label="Show image 3 of 4"><img src="assets/products/pommade-pure-coconut-3-thumb.webp" alt="" width="300" height="300" loading="lazy"></button>
+            <button type="button" class="product-thumb" data-src="assets/products/pommade-pure-coconut-4.webp" data-alt="Pure Coconut &ndash; view 4" aria-label="Show image 4 of 4"><img src="assets/products/pommade-pure-coconut-4-thumb.webp" alt="" width="300" height="300" loading="lazy"></button>
+          </div>
         </div>
         <div class="product-detail-info" data-reveal data-reveal-delay="1">
           <span class="category-eyebrow">Body Balms</span>
@@ -119,7 +127,7 @@
       <div class="product-grid">
         <a href="product-pommade-precious-monoi.html" class="product-card">
           <div class="product-card-media">
-            <img src="assets/best-seller-3.png" alt="Precious Mono&iuml;">
+            <img src="assets/products/pommade-precious-monoi-1.webp" alt="Precious Mono&iuml;">
             <span class="product-card-size">200 g &middot; 80 g</span>
           </div>
           <h3>Precious Mono&iuml;</h3>
@@ -128,7 +136,7 @@
         </a>
         <a href="product-pommade-golden-carrot.html" class="product-card">
           <div class="product-card-media">
-            <img src="assets/tropical-escape-image.jpg" alt="Golden Carrot">
+            <img src="assets/products/pommade-golden-carrot-1.webp" alt="Golden Carrot">
             <span class="product-card-size">200 g &middot; 80 g</span>
           </div>
           <h3>Golden Carrot</h3>
@@ -141,7 +149,7 @@
 
 </main>
 <div class="footer-art" aria-hidden="true">
-  <img src="assets/footer-image.png" alt="">
+  <img src="assets/footer-image.png?v=2" alt="">
 </div>
 
 <!-- ============ FOOTER ============ -->
@@ -182,7 +190,7 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=8"></script>
+<script src="js/script.js?v=10"></script>
 <script src="js/i18n.js?v=3"></script>
 </body>
 </html>

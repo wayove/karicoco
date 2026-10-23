@@ -60,6 +60,35 @@
     });
   }
 
+  /* ---------- Hero video: respect reduced-motion preference ---------- */
+  const heroVideo = document.getElementById("heroVideo");
+  if (heroVideo && window.matchMedia) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncHeroVideo = () => {
+      if (reduceMotion.matches) {
+        heroVideo.pause(); // poster frame stays visible
+      } else {
+        const playing = heroVideo.play();
+        if (playing && playing.catch) playing.catch(() => {});
+      }
+    };
+    syncHeroVideo();
+    if (reduceMotion.addEventListener) reduceMotion.addEventListener("change", syncHeroVideo);
+  }
+
+  /* ---------- Product gallery: thumbnails swap the main image ---------- */
+  const galleryMain = document.getElementById("galleryMain");
+  const thumbs = document.querySelectorAll(".product-thumb");
+  if (galleryMain && thumbs.length) {
+    thumbs.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        galleryMain.src = btn.getAttribute("data-src");
+        galleryMain.alt = btn.getAttribute("data-alt") || galleryMain.alt;
+        thumbs.forEach((b) => b.classList.toggle("is-active", b === btn));
+      });
+    });
+  }
+
   /* ---------- Scroll reveal ---------- */
   const revealEls = document.querySelectorAll("[data-reveal]");
 

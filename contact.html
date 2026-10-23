@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12">
+<link rel="stylesheet" href="css/style.css?v=15">
 </head>
 <body>
 
@@ -72,7 +72,10 @@
 <main>
 
   <section class="page-hero">
-    <div class="container">
+    <div class="page-hero-bg" aria-hidden="true">
+      <img src="assets/hero/hero-common.jpg" srcset="assets/hero/hero-common-1100.jpg 1100w, assets/hero/hero-common.jpg 2172w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
+    </div>
+    <div class="container page-hero-inner">
       <div class="breadcrumb" data-reveal><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
       <h1 data-reveal>We&rsquo;d Love to Hear From You</h1>
       <p data-reveal data-reveal-delay="1">Have a question, need support, or want to learn more about our products? Our team is always happy to assist you.</p>
@@ -159,7 +162,7 @@
 
 </main>
 <div class="footer-art" aria-hidden="true">
-  <img src="assets/footer-image.png" alt="">
+  <img src="assets/footer-image.png?v=2" alt="">
 </div>
 
 <!-- ============ FOOTER ============ -->
@@ -200,7 +203,7 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=8"></script>
+<script src="js/script.js?v=10"></script>
 <script src="js/i18n.js?v=3"></script>
 </body>
 </html>

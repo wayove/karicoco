@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12">
+<link rel="stylesheet" href="css/style.css?v=15">
 </head>
 <body>
 
@@ -79,8 +79,16 @@
       </div>
 
       <div class="product-detail-inner">
-        <div class="product-detail-media" data-reveal>
-          <img src="assets/best-seller-2.png" alt="Mono&iuml;, Coconut &amp; Shea Tanning Oil">
+        <div class="product-gallery" data-reveal>
+          <div class="product-detail-media">
+            <img id="galleryMain" src="assets/products/tanning-oil-monoi-1.webp" alt="Mono&iuml;, Coconut &amp; Shea Tanning Oil" width="1000" height="1000">
+          </div>
+          <div class="product-thumbs">
+            <button type="button" class="product-thumb is-active" data-src="assets/products/tanning-oil-monoi-1.webp" data-alt="Mono&iuml;, Coconut &amp; Shea Tanning Oil &ndash; view 1" aria-label="Show image 1 of 4"><img src="assets/products/tanning-oil-monoi-1-thumb.webp" alt="" width="300" height="300" loading="lazy"></button>
+            <button type="button" class="product-thumb" data-src="assets/products/tanning-oil-monoi-2.webp" data-alt="Mono&iuml;, Coconut &amp; Shea Tanning Oil &ndash; view 2" aria-label="Show image 2 of 4"><img src="assets/products/tanning-oil-monoi-2-thumb.webp" alt="" width="300" height="300" loading="lazy"></button>
+            <button type="button" class="product-thumb" data-src="assets/products/tanning-oil-monoi-3.webp" data-alt="Mono&iuml;, Coconut &amp; Shea Tanning Oil &ndash; view 3" aria-label="Show image 3 of 4"><img src="assets/products/tanning-oil-monoi-3-thumb.webp" alt="" width="300" height="300" loading="lazy"></button>
+            <button type="button" class="product-thumb" data-src="assets/products/tanning-oil-monoi-4.webp" data-alt="Mono&iuml;, Coconut &amp; Shea Tanning Oil &ndash; view 4" aria-label="Show image 4 of 4"><img src="assets/products/tanning-oil-monoi-4-thumb.webp" alt="" width="300" height="300" loading="lazy"></button>
+          </div>
         </div>
         <div class="product-detail-info" data-reveal data-reveal-delay="1">
           <span class="category-eyebrow">Tanning Oils</span>
@@ -124,7 +132,7 @@
       <div class="product-grid">
         <a href="product-tanning-oil-carrot.html" class="product-card">
           <div class="product-card-media">
-            <img src="assets/product.png" alt="Carrot, Coconut &amp; Shea Tanning Oil">
+            <img src="assets/products/tanning-oil-carrot-1.webp" alt="Carrot, Coconut &amp; Shea Tanning Oil">
             <span class="product-card-size">200 ml</span>
           </div>
           <h3>Carrot, Coconut &amp; Shea Tanning Oil</h3>
@@ -133,7 +141,7 @@
         </a>
         <a href="product-tanning-oil-coconut.html" class="product-card">
           <div class="product-card-media">
-            <img src="assets/best-seller-3.png" alt="Coconut &amp; Shea Tanning Oil">
+            <img src="assets/products/tanning-oil-coconut-1.webp" alt="Coconut &amp; Shea Tanning Oil">
             <span class="product-card-size">200 ml</span>
           </div>
           <h3>Coconut &amp; Shea Tanning Oil</h3>
@@ -146,7 +154,7 @@
 
 </main>
 <div class="footer-art" aria-hidden="true">
-  <img src="assets/footer-image.png" alt="">
+  <img src="assets/footer-image.png?v=2" alt="">
 </div>
 
 <!-- ============ FOOTER ============ -->
@@ -187,7 +195,7 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=8"></script>
+<script src="js/script.js?v=10"></script>
 <script src="js/i18n.js?v=3"></script>
 </body>
 </html>

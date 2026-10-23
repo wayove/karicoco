@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=12">
+<link rel="stylesheet" href="css/style.css?v=15">
 </head>
 <body>
 
@@ -74,7 +74,10 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="home">
     <div class="hero-bg">
-      <img src="assets/hero-banner.jpg" alt="Karicoco tanning oil on tropical beach" class="hero-img">
+      <video class="hero-img hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg" aria-hidden="true">
+        <source src="assets/video/hero-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-scrim" aria-hidden="true"></div>
     </div>
     <div class="container hero-inner">
       <div class="hero-copy" data-reveal>
@@ -90,7 +93,7 @@
   <section class="escape-section" id="about">
     <div class="container escape-inner">
       <div class="escape-media" data-reveal>
-        <img src="assets/tropical-escape-image.jpg" alt="Karicoco product lineup on the sand">
+        <img src="assets/home/tropical-escape.webp" alt="Karicoco tanning oil, after-sun, sunscreen spray and pommade on the sand" width="1600" height="1200">
       </div>
       <div class="escape-copy" data-reveal data-reveal-delay="1">
         <h2>A Tropical Escape,<br>Bottled.</h2>
@@ -107,32 +110,47 @@
         <h2>The Karicoco Range</h2>
         <span class="heading-rule" aria-hidden="true"></span>
       </div>
-      <div class="category-grid">
-        <div class="category-card" data-reveal>
-        <h3>Sun Care</h3>
-        <p>Protect, soothe, and care for sun-exposed skin.</p>
-        <a href="sun-care.html" class="text-link">Explore Sun Care &rarr;</a>
-      </div>
-        <div class="category-card" data-reveal>
-        <h3>Tanning Oils</h3>
-        <p>Hydrating blends for a smooth, sun-kissed glow.</p>
-        <a href="tanning-oils.html" class="text-link">Explore Tanning Oils &rarr;</a>
-      </div>
-        <div class="category-card" data-reveal>
-        <h3>Body Balms</h3>
-        <p>Rich nourishment for face, body, and hair.</p>
-        <a href="body-balms.html" class="text-link">Explore Body Balms &rarr;</a>
-      </div>
-        <div class="category-card" data-reveal>
-        <h3>Beauty Oils</h3>
-        <p>Lightweight nourishment with everyday sun protection.</p>
-        <a href="beauty-oils.html" class="text-link">Explore Beauty Oils &rarr;</a>
-      </div>
-        <div class="category-card" data-reveal>
-        <h3>Mentholated Care</h3>
-        <p>Where Karicoco started. Cooling soap, balm and shower gel.</p>
-        <a href="mentholated-care.html" class="text-link">Explore Mentholated Care &rarr;</a>
-      </div>
+      <div class="category-grid category-grid--media">
+        <a href="sun-care.html" class="category-card category-card--media" data-reveal data-reveal-delay="0">
+          <div class="category-card-media"><img src="assets/home/range-suncare.webp" alt="Karicoco sun care on the beach" width="900" height="1200" loading="lazy"></div>
+          <div class="category-card-body">
+            <h3>Sun Care</h3>
+            <p>Protect, soothe, and care for sun-exposed skin.</p>
+            <span class="text-link">Explore Sun Care &rarr;</span>
+          </div>
+        </a>
+        <a href="tanning-oils.html" class="category-card category-card--media" data-reveal data-reveal-delay="1">
+          <div class="category-card-media"><img src="assets/home/range-tanning-oils.webp" alt="Karicoco tanning oil" width="900" height="1200" loading="lazy"></div>
+          <div class="category-card-body">
+            <h3>Tanning Oils</h3>
+            <p>Hydrating blends for a smooth, sun-kissed glow.</p>
+            <span class="text-link">Explore Tanning Oils &rarr;</span>
+          </div>
+        </a>
+        <a href="body-balms.html" class="category-card category-card--media" data-reveal data-reveal-delay="2">
+          <div class="category-card-media"><img src="assets/home/range-body-balms.webp" alt="Karicoco pommade with a fresh coconut" width="900" height="1200" loading="lazy"></div>
+          <div class="category-card-body">
+            <h3>Body Balms</h3>
+            <p>Rich nourishment for face, body, and hair.</p>
+            <span class="text-link">Explore Body Balms &rarr;</span>
+          </div>
+        </a>
+        <a href="beauty-oils.html" class="category-card category-card--media" data-reveal data-reveal-delay="0">
+          <div class="category-card-media"><div class="category-card-placeholder" aria-hidden="true"><img src="assets/banner-overlay-badge.png" alt=""></div></div>
+          <div class="category-card-body">
+            <h3>Beauty Oils</h3>
+            <p>Lightweight nourishment with everyday sun protection.</p>
+            <span class="text-link">Explore Beauty Oils &rarr;</span>
+          </div>
+        </a>
+        <a href="mentholated-care.html" class="category-card category-card--media" data-reveal data-reveal-delay="1">
+          <div class="category-card-media"><div class="category-card-placeholder" aria-hidden="true"><img src="assets/banner-overlay-badge.png" alt=""></div></div>
+          <div class="category-card-body">
+            <h3>Mentholated Care</h3>
+            <p>Where Karicoco started. Cooling soap, balm and shower gel.</p>
+            <span class="text-link">Explore Mentholated Care &rarr;</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -200,42 +218,42 @@
       </div>
       <div class="ingredients-grid">
         <div class="ingredient-card" data-reveal data-reveal-delay="0">
-          <span class="ingredient-dot" aria-hidden="true"></span>
+          <img class="ingredient-icon" src="assets/home/nb-coconut-oil.png" alt="" width="500" height="500" loading="lazy">
           <div>
             <h3>Coconut oil</h3>
             <p>Nourishes and restores softness</p>
           </div>
         </div>
         <div class="ingredient-card" data-reveal data-reveal-delay="1">
-          <span class="ingredient-dot" aria-hidden="true"></span>
+          <img class="ingredient-icon" src="assets/home/nb-shea-butter.png" alt="" width="500" height="500" loading="lazy">
           <div>
             <h3>Shea butter</h3>
             <p>Long-lasting moisture</p>
           </div>
         </div>
         <div class="ingredient-card" data-reveal data-reveal-delay="2">
-          <span class="ingredient-dot" aria-hidden="true"></span>
+          <img class="ingredient-icon" src="assets/home/nb-monoi.png" alt="" width="500" height="500" loading="lazy">
           <div>
             <h3>Mono&iuml;</h3>
             <p>Radiance and signature scent</p>
           </div>
         </div>
         <div class="ingredient-card" data-reveal data-reveal-delay="0">
-          <span class="ingredient-dot" aria-hidden="true"></span>
+          <img class="ingredient-icon" src="assets/home/nb-carrot-oil.png" alt="" width="500" height="500" loading="lazy">
           <div>
             <h3>Carrot oil</h3>
             <p>Betacarotene, for warmth and depth of tone</p>
           </div>
         </div>
         <div class="ingredient-card" data-reveal data-reveal-delay="1">
-          <span class="ingredient-dot" aria-hidden="true"></span>
+          <img class="ingredient-icon" src="assets/home/nb-aloe-vera.png" alt="" width="500" height="500" loading="lazy">
           <div>
             <h3>Aloe vera</h3>
             <p>Soothes and hydrates sun-exposed skin</p>
           </div>
         </div>
         <div class="ingredient-card" data-reveal data-reveal-delay="2">
-          <span class="ingredient-dot" aria-hidden="true"></span>
+          <img class="ingredient-icon" src="assets/home/nb-vitamin-e.png" alt="" width="500" height="500" loading="lazy">
           <div>
             <h3>Vitamin E</h3>
             <p>Antioxidant, in every tanning oil</p>
@@ -288,7 +306,7 @@
 
 </main>
 <div class="footer-art" aria-hidden="true">
-  <img src="assets/footer-image.png" alt="">
+  <img src="assets/footer-image.png?v=2" alt="">
 </div>
 
 <!-- ============ FOOTER ============ -->
@@ -329,7 +347,7 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=8"></script>
+<script src="js/script.js?v=10"></script>
 <script src="js/i18n.js?v=3"></script>
 </body>
 </html>

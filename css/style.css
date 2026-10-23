@@ -1125,9 +1125,38 @@ a { color: inherit; text-decoration: none; }
    PAGE HERO — sub-page banner (category / about / partner / contact)
    ========================================================== */
 .page-hero {
-  padding: clamp(150px, 20vw, 210px) 0 clamp(48px, 7vw, 84px);
-  background: var(--cream);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(380px, 33.33vw, 620px); /* matches the 3:1 hero artwork */
+  padding: clamp(72px, 6vw, 88px) 0 clamp(24px, 3vw, 40px);
+  background: var(--cream); /* fallback while the image loads */
   text-align: center;
+  overflow: hidden;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero .breadcrumb {
+  opacity: 0.85;
 }
 
 .page-hero .eyebrow {
@@ -1679,3 +1708,181 @@ a { color: inherit; text-decoration: none; }
   z-index: 2;
   pointer-events: none;
 }
+
+/* ==========================================================
+   HOME — hero video
+   ========================================================== */
+.hero-video {
+  display: block;
+  object-position: center;
+  background: var(--cream);
+}
+
+/* Soft cream wash keeps the brown headline + nav legible over moving footage */
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 245, 225, 0.75) 0, rgba(255, 245, 225, 0) 170px),
+    linear-gradient(90deg, rgba(255, 245, 225, 0.88) 0%, rgba(255, 245, 225, 0.6) 40%, rgba(255, 245, 225, 0) 74%);
+}
+
+@media (max-width: 640px) {
+  .hero-scrim {
+    background: linear-gradient(180deg, rgba(255, 245, 225, 0.82) 0%, rgba(255, 245, 225, 0.6) 100%);
+  }
+}
+
+/* ==========================================================
+   HOME — range cards with image (CardStyle1)
+   ========================================================== */
+.category-grid--media {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* last row of 2 sits centred under the 3 above */
+  gap: 24px;
+}
+
+.category-card--media {
+  flex: 1 1 100%;
+  flex-direction: row;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  min-height: 200px;
+}
+
+@media (min-width: 720px) {
+  .category-card--media { flex: 0 1 calc(50% - 12px); max-width: calc(50% - 12px); }
+}
+
+@media (min-width: 1100px) {
+  .category-card--media { flex: 0 1 calc(33.333% - 16px); max-width: calc(33.333% - 16px); }
+}
+
+.category-card-media {
+  position: relative;
+  flex: 0 0 38%;
+  overflow: hidden;
+}
+
+.category-card-media > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.category-card--media:hover .category-card-media > img { transform: scale(1.06); }
+
+/* Placeholder until real photography arrives for Beauty Oils / Mentholated Care */
+.category-card-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--gold) 0%, #ffe3ad 55%, var(--cream) 100%);
+}
+
+.category-card-placeholder img {
+  width: 58%;
+  max-width: 110px;
+  height: auto;
+  opacity: 0.9;
+}
+
+.category-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  padding: 24px 22px;
+}
+
+.category-card--media h3 { font-size: 21px; margin-bottom: 10px; }
+
+.category-card--media p { flex-grow: 0; margin-bottom: 18px; }
+
+.category-card--media .text-link {
+  display: flex;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* ==========================================================
+   HOME — Nature's Best cards with image (CardStyle2)
+   ========================================================== */
+@media (min-width: 980px) {
+  .ingredients-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.ingredient-card {
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  border-radius: 18px;
+}
+
+.ingredient-icon {
+  flex-shrink: 0;
+  width: clamp(68px, 7vw, 84px);
+  height: auto;
+  border-radius: 50%;
+}
+
+.ingredient-card h3 { font-size: 16px; }
+.ingredient-card p { font-size: 15px; opacity: 0.9; }
+
+/* ==========================================================
+   Nature's Best — gold disc behind each icon (CardStyle2)
+   ========================================================== */
+.ingredient-icon {
+  --s: clamp(68px, 7vw, 84px);
+  width: var(--s);
+  height: var(--s);
+  padding: calc(var(--s) * 0.2);
+  box-sizing: border-box;
+  object-fit: contain;
+  background: #daaf61;
+  border-radius: 50%;
+}
+
+/* ==========================================================
+   Product images — square cards + gallery
+   ========================================================== */
+.product-card-media { aspect-ratio: 1 / 1; }
+.product-detail-media { aspect-ratio: 1 / 1; }
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.product-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.product-thumb {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--cream);
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  opacity: 0.7;
+  transition: opacity 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.product-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-thumb:hover { opacity: 1; }
+.product-thumb.is-active { opacity: 1; border-color: var(--gold-dark); }
+.product-thumb:focus-visible { outline: 2px solid var(--brown-950); outline-offset: 2px; }
